@@ -1,11 +1,15 @@
 package mmelo.springframework.sfgdi.controllers;
 
 import mmelo.springframework.sfgdi.services.GreetingService;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 
-public class ContructorInjectedController {
+@Controller
+public class ConstructorInjectedController {
+
     private final GreetingService greetingService;
 
-    public ContructorInjectedController(GreetingService greetingService) {
+    public ConstructorInjectedController(@Qualifier("constructorGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
