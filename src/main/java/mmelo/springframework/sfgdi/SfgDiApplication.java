@@ -1,9 +1,6 @@
 package mmelo.springframework.sfgdi;
 
-import mmelo.springframework.sfgdi.controllers.ConstructorInjectedController;
-import mmelo.springframework.sfgdi.controllers.MyController;
-import mmelo.springframework.sfgdi.controllers.PropertyInjectedController;
-import mmelo.springframework.sfgdi.controllers.SetterInjectedController;
+import mmelo.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -34,5 +31,9 @@ public class SfgDiApplication {
         System.out.println("-------Constructor----------");
         ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.getGreeting());
+
+        System.out.println("-------Profile----------");
+        I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+        System.out.println(i18nController.sayGreeting());
     }
 }
