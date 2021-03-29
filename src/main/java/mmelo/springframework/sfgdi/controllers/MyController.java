@@ -1,13 +1,18 @@
 package mmelo.springframework.sfgdi.controllers;
 
+import mmelo.springframework.sfgdi.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class MyController {
 
-    public String sayHello(){
-        System.out.println("Hello world!!!");
+    private final GreetingService greetingService;
 
-        return "Hello Forks!!!";
+    public MyController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    public String sayHello(){
+      return greetingService.sayGreeting();
     }
 }
